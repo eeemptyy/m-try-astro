@@ -1,5 +1,19 @@
 ---
 // Component imports and setup JavaScript go here!
+import createAuth0Client from '@auth0/auth0-spa-js';
+
+const auth0 = null;
+const fetchAuthConfig = () => fetch("/auth_config.json");
+
+const configureClient = async () => {
+  const response = await fetchAuthConfig();
+  const config = await response.json();
+
+  auth0 = await createAuth0Client({
+    domain: config.domain,
+    client_id: config.clientId
+  });
+};
 ---
 
 <html lang="en">
@@ -10,10 +24,24 @@
 		<style>
 			/* scoped CSS styles go here: */
 			/* h1 { ... } */
+			.hidden {
+				display: none;
+			}
+
+			label {
+				margin-bottom: 10px;
+				display: block;
+			}
 		</style>
 	</head>
 
 	<body>
 		<h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
+    <h2>SPA Authentication Sample</h2>
+    <p>Welcome to our page!</p>
+    <button id="btn-login" disabled="true" onclick="login()">Log in</button>
+    <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
+		<br>
+		<a href="pass_auth">Pass Authen</a>
 	</body>
 </html>
