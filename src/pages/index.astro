@@ -4,8 +4,6 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 import CounterVue from '../components/CounterVue.vue';
 import CounterReact from '../components/CounterReact.jsx';
 
-let variableExample = '<=== look';
-
 // const auth0 = null;
 // const fetchAuthConfig = () => fetch("/auth_config.json");
 
@@ -18,6 +16,8 @@ let variableExample = '<=== look';
 //     client_id: config.clientId
 //   });
 // };
+
+const title = 'Test Title';
 ---
 
 <html lang="en">
@@ -40,7 +40,7 @@ let variableExample = '<=== look';
 	</head>
 
 	<body>
-		<h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
+		<h1>{title}</h1>
     <h2>SPA Authentication Sample</h2>
     <p>Welcome to our page!</p>
     <button id="btn-login" disabled="true" onclick="login()">Log in</button>
