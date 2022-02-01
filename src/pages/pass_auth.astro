@@ -1,5 +1,8 @@
 ---
 // Component imports and setup JavaScript go here!
+import CounterVue from '../components/CounterVue.vue';
+import CounterReact from '../components/CounterReact.jsx';
+
 const title = 'Pass Authen';
 ---
 
@@ -11,10 +14,31 @@ const title = 'Pass Authen';
 		<style>
 			/* scoped CSS styles go here: */
 			/* h1 { ... } */
+			.hidden {
+				display: none;
+			}
+
+			div {
+				padding: 10px 0px;
+			}
+
+			label {
+				margin-bottom: 10px;
+				display: block;
+			}
 		</style>
 	</head>
 
 	<body>
 		<h1>{title}</h1>
+
+		<div>
+			<CounterVue client:load />
+		</div>
+
+		<div>
+			<CounterReact client:load />
+		</div>
+
 	</body>
 </html>

@@ -4,32 +4,36 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 import CounterVue from '../components/CounterVue.vue';
 import CounterReact from '../components/CounterReact.jsx';
 
-// const auth0 = null;
-// const fetchAuthConfig = () => fetch("/auth_config.json");
+const auth0 = null;
+const fetchAuthConfig = () => fetch("/auth_config.json");
 
-// const configureClient = async () => {
-//   const response = await fetchAuthConfig();
-//   const config = await response.json();
+const configureClient = async () => {
+  const response = await fetchAuthConfig();
+  const config = await response.json();
 
-//   auth0 = await createAuth0Client({
-//     domain: config.domain,
-//     client_id: config.clientId
-//   });
-// };
+  auth0 = await createAuth0Client({
+    domain: config.domain,
+    client_id: config.clientId
+  });
+};
 
-const title = 'Test Title';
+const title = 'SPA Authentication Sample';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>Welcome to Astro</title>
+		<title>{title}</title>
 		<style>
 			/* scoped CSS styles go here: */
 			/* h1 { ... } */
 			.hidden {
 				display: none;
+			}
+
+			div {
+				padding: 10px 0px;
 			}
 
 			label {
@@ -41,54 +45,13 @@ const title = 'Test Title';
 
 	<body>
 		<h1>{title}</h1>
-    <h2>SPA Authentication Sample</h2>
     <p>Welcome to our page!</p>
     <button id="btn-login" disabled="true" onclick="login()">Log in</button>
     <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
-		<br>
-		<a href="pass_auth">Pass Authen</a>
 
-		<CounterVue client:load />
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		a<br>
-		<CounterReact client:visible />
+		<div>
+			<a href="pass_auth">To Counter</a>
+		</div>
 	
 	</body>
 </html>
