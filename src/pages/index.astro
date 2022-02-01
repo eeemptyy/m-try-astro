@@ -1,19 +1,23 @@
 ---
 // Component imports and setup JavaScript go here!
 import createAuth0Client from '@auth0/auth0-spa-js';
+import CounterVue from '../components/CounterVue.vue';
+import CounterReact from '../components/CounterReact.jsx';
 
-const auth0 = null;
-const fetchAuthConfig = () => fetch("/auth_config.json");
+let variableExample = '<=== look';
 
-const configureClient = async () => {
-  const response = await fetchAuthConfig();
-  const config = await response.json();
+// const auth0 = null;
+// const fetchAuthConfig = () => fetch("/auth_config.json");
 
-  auth0 = await createAuth0Client({
-    domain: config.domain,
-    client_id: config.clientId
-  });
-};
+// const configureClient = async () => {
+//   const response = await fetchAuthConfig();
+//   const config = await response.json();
+
+//   auth0 = await createAuth0Client({
+//     domain: config.domain,
+//     client_id: config.clientId
+//   });
+// };
 ---
 
 <html lang="en">
@@ -43,5 +47,48 @@ const configureClient = async () => {
     <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
 		<br>
 		<a href="pass_auth">Pass Authen</a>
+
+		<CounterVue client:load />
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		a<br>
+		<CounterReact client:visible />
+	
 	</body>
 </html>
